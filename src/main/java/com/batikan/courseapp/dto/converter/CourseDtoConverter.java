@@ -2,14 +2,19 @@ package com.batikan.courseapp.dto.converter;
 
 import com.batikan.courseapp.dto.CourseDto;
 import com.batikan.courseapp.model.Course;
+import org.springframework.stereotype.Component;
 
 import java.util.stream.Collectors;
 
+@Component
 public class CourseDtoConverter {
     //Course to CourseDto
+
+    private final CourseTeacherDtoConverter courseTeacherDtoConverter;
     private final EnrollDtoConverter enrollDtoConverter;
 
-    public CourseDtoConverter(EnrollDtoConverter enrollDtoConverter) {
+    public CourseDtoConverter(CourseTeacherDtoConverter courseTeacherDtoConverter, EnrollDtoConverter enrollDtoConverter) {
+        this.courseTeacherDtoConverter = courseTeacherDtoConverter;
         this.enrollDtoConverter = enrollDtoConverter;
     }
 
@@ -17,7 +22,7 @@ public class CourseDtoConverter {
         return new CourseDto(from.getId(),
                 from.getName(),
                 from.getDate(),
-                from.getTeacher(),
-                from.getEnrollList().stream().map(t -> enrollDtoConverter.convert(t)).collect(Collectors.toList()));
+                courseTeacherDtoConverter.convert(from.getTeacher()),
+                from.getEnrollList().stream().map(enrollDtoConverter::convert).collect(Collectors.toList()));
     }
 }

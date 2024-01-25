@@ -2,9 +2,12 @@ package com.batikan.courseapp.dto.converter;
 
 import com.batikan.courseapp.dto.StudentDto;
 import com.batikan.courseapp.model.Student;
+import jdk.jfr.Category;
+import org.springframework.stereotype.Component;
 
 import java.util.stream.Collectors;
 
+@Component
 public class StudentDtoConverter {
     //Student to StudentDto
 
@@ -22,7 +25,7 @@ public class StudentDtoConverter {
                 from.getEmail(),
                 from.getPassword(),
                 from.getTelno(),
-                from.getEnrollList().stream().map(t -> enrollDtoConverter.convert(t)).collect(Collectors.toList())
+                from.getEnrollList().stream().map(enrollDtoConverter::convert).collect(Collectors.toList())
         );
     }
 }

@@ -11,6 +11,8 @@ public record EnrollCourseDto(
 
         Date date,
 
-        TeacherDto teacher
+        CourseTeacherDto teacher
+
+
 ) {
 }

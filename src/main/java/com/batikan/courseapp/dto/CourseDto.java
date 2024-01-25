@@ -13,7 +13,7 @@ public record CourseDto(
 
         Date date,
 
-        Teacher teacher,
+        CourseTeacherDto teacher,
 
         List<EnrollDto> enrollList
 ) {

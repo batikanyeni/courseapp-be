@@ -2,7 +2,9 @@ package com.batikan.courseapp.dto.converter;
 
 import com.batikan.courseapp.dto.EnrollDto;
 import com.batikan.courseapp.model.Enroll;
+import org.springframework.stereotype.Component;
 
+@Component
 public class EnrollDtoConverter {
     //Enroll to EnrollDto
 
