@@ -7,19 +7,22 @@ import java.util.stream.Collectors;
 
 public class StudentDtoConverter {
     //Student to StudentDto
-    private final StudentEnrollDtoConverter studentEnrollDtoConverter;
 
-    public StudentDtoConverter(StudentEnrollDtoConverter studentEnrollDtoConverter) {
-        this.studentEnrollDtoConverter = studentEnrollDtoConverter;
+    private final EnrollDtoConverter enrollDtoConverter;
+
+    public StudentDtoConverter(EnrollDtoConverter enrollDtoConverter) {
+        this.enrollDtoConverter = enrollDtoConverter;
     }
 
     public StudentDto convert(Student from){
-        return new StudentDto(from.getId(),
+        return new StudentDto(
+                from.getId(),
                 from.getName(),
                 from.getSurname(),
                 from.getEmail(),
                 from.getPassword(),
                 from.getTelno(),
-                from.getEnrollList().stream().map(a -> studentEnrollDtoConverter.convert(a)).collect(Collectors.toList()));
+                from.getEnrollList().stream().map(t -> enrollDtoConverter.convert(t)).collect(Collectors.toList())
+        );
     }
 }

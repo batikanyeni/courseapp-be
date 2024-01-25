@@ -1,5 +1,7 @@
 package com.batikan.courseapp.dto;
 
+import com.batikan.courseapp.model.Course;
+
 import java.util.List;
 
 public record TeacherDto(

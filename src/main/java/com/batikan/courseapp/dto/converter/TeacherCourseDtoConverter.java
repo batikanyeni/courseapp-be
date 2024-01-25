@@ -15,9 +15,10 @@ public class TeacherCourseDtoConverter {
     }
 
     public TeacherCourseDto convert(Course from){
-        return new TeacherCourseDto(from.getId(),
+        return new TeacherCourseDto(
+                from.getId(),
                 from.getName(),
                 from.getDate(),
-                from.getEnrollList().stream().map(a -> enrollDtoConverter.convert(a)).collect(Collectors.toList()));
+                from.getEnrollList().stream().map(t -> enrollDtoConverter.convert(t)).collect(Collectors.toList()));
     }
 }

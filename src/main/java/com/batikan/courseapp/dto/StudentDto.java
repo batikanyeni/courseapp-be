@@ -1,20 +1,22 @@
 package com.batikan.courseapp.dto;
 
+import com.batikan.courseapp.model.Enroll;
+
 import java.util.List;
 
 public record StudentDto(
-         String id,
+        String id,
 
-         String name,
+        String name,
 
-         String surname,
+        String surname,
 
-         String email,
+        String email,
 
-         String password,
+        String password,
 
-         String telno,
+        String telno,
 
-         List<StudentEnrollDto> studentEnrollments
+        List<EnrollDto> enrollList
 ) {
 }

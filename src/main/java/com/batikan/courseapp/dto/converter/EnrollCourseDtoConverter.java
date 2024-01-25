@@ -12,9 +12,11 @@ public class EnrollCourseDtoConverter {
     }
 
     public EnrollCourseDto convert(Course from){
-        return new EnrollCourseDto(from.getId(),
+        return new EnrollCourseDto(
+                from.getId(),
                 from.getName(),
                 from.getDate(),
-                teacherDtoConverter.convert(from.getTeacher()));
+                teacherDtoConverter.convert(from.getTeacher())
+        );
     }
 }

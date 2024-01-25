@@ -5,6 +5,7 @@ import com.batikan.courseapp.model.Enroll;
 
 public class EnrollDtoConverter {
     //Enroll to EnrollDto
+
     private final EnrollStudentDtoConverter enrollStudentDtoConverter;
     private final EnrollCourseDtoConverter enrollCourseDtoConverter;
 
@@ -14,9 +15,10 @@ public class EnrollDtoConverter {
     }
 
     public EnrollDto convert(Enroll from){
-        return new EnrollDto(from.getId(),
+        return new EnrollDto(
+                from.getId(),
                 enrollStudentDtoConverter.convert(from.getStudent()),
                 enrollCourseDtoConverter.convert(from.getCourse())
-                );
+        );
     }
 }

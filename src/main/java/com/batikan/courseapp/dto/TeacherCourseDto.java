@@ -1,5 +1,7 @@
 package com.batikan.courseapp.dto;
 
+import com.batikan.courseapp.model.Enroll;
+
 import java.util.Date;
 import java.util.List;
 
@@ -10,6 +12,6 @@ public record TeacherCourseDto(
 
         Date date,
 
-        List<EnrollDto> courseEnrollments
+        List<EnrollDto> enrollList
 ) {
 }
