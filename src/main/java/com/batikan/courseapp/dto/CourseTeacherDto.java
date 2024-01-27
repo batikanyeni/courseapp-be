@@ -9,7 +9,5 @@ public record CourseTeacherDto(
 
         String email,
 
-        String password,
-
         String telno
 ) { }

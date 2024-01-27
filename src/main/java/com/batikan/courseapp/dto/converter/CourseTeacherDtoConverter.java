@@ -14,7 +14,6 @@ public class CourseTeacherDtoConverter {
                 from.getName(),
                 from.getSurname(),
                 from.getEmail(),
-                from.getPassword(),
                 from.getTelno()
         );
     }

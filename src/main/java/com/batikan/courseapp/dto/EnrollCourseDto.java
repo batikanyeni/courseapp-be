@@ -9,7 +9,7 @@ public record EnrollCourseDto(
 
         String name,
 
-        Date date,
+        String weekday,
 
         CourseTeacherDto teacher
 

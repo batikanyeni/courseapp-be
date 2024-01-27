@@ -11,18 +11,19 @@ public class CourseDtoConverter {
     //Course to CourseDto
 
     private final CourseTeacherDtoConverter courseTeacherDtoConverter;
-    private final EnrollDtoConverter enrollDtoConverter;
 
-    public CourseDtoConverter(CourseTeacherDtoConverter courseTeacherDtoConverter, EnrollDtoConverter enrollDtoConverter) {
+    private final CourseEnrollDtoConverter courseEnrollDtoConverter;
+
+    public CourseDtoConverter(CourseTeacherDtoConverter courseTeacherDtoConverter, CourseEnrollDtoConverter courseEnrollDtoConverter) {
         this.courseTeacherDtoConverter = courseTeacherDtoConverter;
-        this.enrollDtoConverter = enrollDtoConverter;
+        this.courseEnrollDtoConverter = courseEnrollDtoConverter;
     }
 
     public CourseDto convert(Course from){
         return new CourseDto(from.getId(),
                 from.getName(),
-                from.getDate(),
+                from.getWeekday(),
                 courseTeacherDtoConverter.convert(from.getTeacher()),
-                from.getEnrollList().stream().map(enrollDtoConverter::convert).collect(Collectors.toList()));
+                from.getEnrollList().stream().map(courseEnrollDtoConverter::convert).collect(Collectors.toList()));
     }
 }

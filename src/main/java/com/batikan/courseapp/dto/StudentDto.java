@@ -17,6 +17,6 @@ public record StudentDto(
 
         String telno,
 
-        List<EnrollDto> enrollList
+        List<StudentEnrollDto> enrollList
 ) {
 }

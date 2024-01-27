@@ -11,10 +11,10 @@ import java.util.stream.Collectors;
 public class StudentDtoConverter {
     //Student to StudentDto
 
-    private final EnrollDtoConverter enrollDtoConverter;
+    private final StudentEnrollDtoConverter studentEnrollDtoConverter;
 
-    public StudentDtoConverter(EnrollDtoConverter enrollDtoConverter) {
-        this.enrollDtoConverter = enrollDtoConverter;
+    public StudentDtoConverter(StudentEnrollDtoConverter studentEnrollDtoConverter) {
+        this.studentEnrollDtoConverter = studentEnrollDtoConverter;
     }
 
     public StudentDto convert(Student from){
@@ -25,7 +25,7 @@ public class StudentDtoConverter {
                 from.getEmail(),
                 from.getPassword(),
                 from.getTelno(),
-                from.getEnrollList().stream().map(enrollDtoConverter::convert).collect(Collectors.toList())
+                from.getEnrollList().stream().map(studentEnrollDtoConverter::convert).collect(Collectors.toList())
         );
     }
 }

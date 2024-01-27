@@ -19,12 +19,19 @@ public class Course {
 
     private String name;
 
-    private Date date;
+    private String weekday;
 
-    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.MERGE)
-    @JoinColumn(nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
+    @JoinColumn()
     private Teacher teacher;
 
     @OneToMany(mappedBy = "course",fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
     private List<Enroll> enrollList;
+
+    public Course(String name, String weekday, Teacher teacher, List<Enroll> enrollList) {
+        this.name = name;
+        this.weekday = weekday;
+        this.teacher = teacher;
+        this.enrollList = enrollList;
+    }
 }

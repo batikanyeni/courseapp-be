@@ -27,7 +27,15 @@ public class Teacher {
 
     private String telno;
 
-    @OneToMany(mappedBy = "teacher",fetch = FetchType.EAGER,cascade = CascadeType.MERGE)
+    @OneToMany(mappedBy = "teacher",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private List<Course> courses;
 
+    public Teacher(String name, String surname, String email, String password, String telno, List<Course> courses) {
+        this.name = name;
+        Surname = surname;
+        this.email = email;
+        this.password = password;
+        this.telno = telno;
+        this.courses = courses;
+    }
 }

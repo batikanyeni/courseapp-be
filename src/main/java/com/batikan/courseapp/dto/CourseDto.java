@@ -11,10 +11,10 @@ public record CourseDto(
 
         String name,
 
-        Date date,
+        String weekday,
 
         CourseTeacherDto teacher,
 
-        List<EnrollDto> enrollList
+        List<CourseEnrollDto> enrollList
 ) {
 }

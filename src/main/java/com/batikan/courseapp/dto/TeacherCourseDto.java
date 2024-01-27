@@ -10,8 +10,6 @@ public record TeacherCourseDto(
 
         String name,
 
-        Date date,
-
-        List<EnrollDto> enrollList
+        String weekday
 ) {
 }

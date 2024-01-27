@@ -18,7 +18,7 @@ public class EnrollCourseDtoConverter {
         return new EnrollCourseDto(
                 from.getId(),
                 from.getName(),
-                from.getDate(),
+                from.getWeekday(),
                 courseTeacherDtoConverter.convert(from.getTeacher())
         );
     }

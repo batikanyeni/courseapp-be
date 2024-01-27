@@ -10,17 +10,11 @@ import java.util.stream.Collectors;
 public class TeacherCourseDtoConverter {
     //Course to TeacherCourseDto
 
-    private final EnrollDtoConverter enrollDtoConverter;
-
-    public TeacherCourseDtoConverter(EnrollDtoConverter enrollDtoConverter) {
-        this.enrollDtoConverter = enrollDtoConverter;
-    }
 
     public TeacherCourseDto convert(Course from){
         return new TeacherCourseDto(
                 from.getId(),
                 from.getName(),
-                from.getDate(),
-                from.getEnrollList().stream().map(enrollDtoConverter::convert).collect(Collectors.toList()));
+                from.getWeekday());
     }
 }
