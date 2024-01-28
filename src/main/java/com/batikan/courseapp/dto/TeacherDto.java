@@ -13,8 +13,6 @@ public record TeacherDto(
 
         String email,
 
-        String password,
-
         String telno,
 
         List<TeacherCourseDto> courses

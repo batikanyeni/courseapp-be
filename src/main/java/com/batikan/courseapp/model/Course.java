@@ -25,7 +25,7 @@ public class Course {
     @JoinColumn()
     private Teacher teacher;
 
-    @OneToMany(mappedBy = "course",fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
+    @OneToMany(mappedBy = "course",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private List<Enroll> enrollList;
 
     public Course(String name, String weekday, Teacher teacher, List<Enroll> enrollList) {

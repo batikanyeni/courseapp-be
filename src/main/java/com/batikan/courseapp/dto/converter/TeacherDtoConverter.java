@@ -22,7 +22,6 @@ public class TeacherDtoConverter {
                 from.getName(),
                 from.getSurname(),
                 from.getEmail(),
-                from.getPassword(),
                 from.getTelno(),
                 from.getCourses().stream().map(teacherCourseDtoConverter::convert).collect(Collectors.toList()));
     }

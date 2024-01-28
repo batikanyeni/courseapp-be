@@ -13,8 +13,6 @@ public record StudentDto(
 
         String email,
 
-        String password,
-
         String telno,
 
         List<StudentEnrollDto> enrollList

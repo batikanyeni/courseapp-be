@@ -9,8 +9,6 @@ public record EnrollStudentDto(
 
         String email,
 
-        String password,
-
         String telno
 ) {
 }

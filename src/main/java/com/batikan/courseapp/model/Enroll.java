@@ -15,11 +15,16 @@ public class Enroll {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.MERGE)
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
     @JoinColumn
     private Student student;
 
-    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.MERGE)
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
     @JoinColumn
     private Course course;
+
+    public Enroll(Student student, Course course) {
+        this.student = student;
+        this.course = course;
+    }
 }

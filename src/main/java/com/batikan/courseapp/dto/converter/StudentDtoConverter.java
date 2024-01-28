@@ -23,7 +23,6 @@ public class StudentDtoConverter {
                 from.getName(),
                 from.getSurname(),
                 from.getEmail(),
-                from.getPassword(),
                 from.getTelno(),
                 from.getEnrollList().stream().map(studentEnrollDtoConverter::convert).collect(Collectors.toList())
         );
