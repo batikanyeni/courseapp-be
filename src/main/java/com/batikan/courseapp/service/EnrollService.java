@@ -4,6 +4,7 @@ package com.batikan.courseapp.service;
 import com.batikan.courseapp.dto.EnrollDto;
 import com.batikan.courseapp.dto.converter.EnrollDtoConverter;
 import com.batikan.courseapp.dto.request.CreateEnrollRequest;
+import com.batikan.courseapp.exception.IdNotFoundException;
 import com.batikan.courseapp.model.Enroll;
 import com.batikan.courseapp.repository.EnrollRepository;
 import org.springframework.stereotype.Service;
@@ -35,8 +36,7 @@ public class EnrollService {
     }
     protected Enroll findById(String id){
         return enrollRepository.findById(id).orElseThrow(
-                //TODO create custom exception
-                RuntimeException::new
+                () -> new IdNotFoundException("Enroll does not exists by id: " +id)
         );
     }
     public List<EnrollDto> getAllEnrolls(){

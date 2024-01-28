@@ -4,6 +4,7 @@ package com.batikan.courseapp.service;
 import com.batikan.courseapp.dto.StudentDto;
 import com.batikan.courseapp.dto.converter.StudentDtoConverter;
 import com.batikan.courseapp.dto.request.CreateStudentRequest;
+import com.batikan.courseapp.exception.IdNotFoundException;
 import com.batikan.courseapp.model.Student;
 import com.batikan.courseapp.repository.StudentRepository;
 import org.springframework.stereotype.Service;
@@ -35,10 +36,9 @@ public class StudentService {
 
         return studentDtoConverter.convert(studentRepository.save(student));
     }
-    protected Student findById(String student_id){
-        return studentRepository.findById(student_id).orElseThrow(
-                        //TODO create custom exception
-                        RuntimeException::new
+    protected Student findById(String id){
+        return studentRepository.findById(id).orElseThrow(
+                () -> new IdNotFoundException("Student does not exist by id: "+id)
         );
     }
     public List<StudentDto> getAllStudents(){

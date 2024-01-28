@@ -5,6 +5,7 @@ import com.batikan.courseapp.dto.converter.CourseDtoConverter;
 import com.batikan.courseapp.dto.request.CreateCourseRequest;
 import com.batikan.courseapp.dto.request.UpdateCourseRequest;
 import com.batikan.courseapp.dto.request.UpdateCourseTeacherRequest;
+import com.batikan.courseapp.exception.IdNotFoundException;
 import com.batikan.courseapp.model.Course;
 import com.batikan.courseapp.model.Teacher;
 import com.batikan.courseapp.repository.CourseRepository;
@@ -41,8 +42,7 @@ public class CourseService {
 
     protected Course findById(String id){
         return courseRepository.findById(id).orElseThrow(
-                //TODO create custom exception
-                RuntimeException::new
+                () -> new IdNotFoundException("Course does not exists by id: " +id)
         );
     }
 

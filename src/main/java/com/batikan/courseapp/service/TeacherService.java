@@ -5,6 +5,7 @@ import com.batikan.courseapp.dto.TeacherDto;
 import com.batikan.courseapp.dto.converter.TeacherDtoConverter;
 import com.batikan.courseapp.dto.request.CreateTeacherRequest;
 import com.batikan.courseapp.dto.request.UpdateTeacherRequest;
+import com.batikan.courseapp.exception.IdNotFoundException;
 import com.batikan.courseapp.model.Teacher;
 import com.batikan.courseapp.repository.TeacherRepository;
 import org.springframework.data.crossstore.ChangeSetPersister;
@@ -38,8 +39,7 @@ public class TeacherService {
 
     protected Teacher findById(String id){
         return teacherRepository.findById(id).orElseThrow(
-                    //TODO create custom exception
-                RuntimeException::new
+                () -> new IdNotFoundException("Teacher does not exist by id: "+id)
         );
     }
 
